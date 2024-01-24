@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button onclick="change_text()" id="text">off</button>
+
+    <script>
+      let i = 0;
+      let arr = ["on", "off"];
+
+      function change_text() {
+        let change = document.getElementById("text");
+        i = (i + 1) % arr.length;
+        change.textContent = arr[i];
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      input {
+        background-color: yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <form onsubmit="add_item(event)">
+      <input type="text" id="input" />
+      <input style="background-color: white" type="submit" value="add" />
+    </form>
+    <ul class="item_list"></ul>
+    <script>
+      let arr = [];
+
+      let input = document.querySelector("input");
+      input.addEventListener("input", function (event) {
+        input.style.backgroundColor = "white";
+        if (input.value == "") {
+          input.style.backgroundColor = "yellow";
+        }
+      });
+
+      function add_item(event) {
+        event.preventDefault();
+        let add = document.getElementById("input").value;
+        arr.push(add);
+        input.value = "";
+        display();
+      }
+
+      function display() {
+        let item_list_html = document.querySelector(".item_list");
+        let new_list = "";
+        for (let i = 0; i < arr.length; i++) {
+          new_list += arr[i] + "<br>";
+        }
+        item_list_html.innerHTML = new_list;
+      }
+      display();
+    </script>
+  </body>
+</html>
